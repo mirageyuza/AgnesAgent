@@ -1,0 +1,87 @@
+﻿{
+  "providers": {
+    "agnes": {
+      "type": "openai",
+      "name": "AgnesAI（主）",
+      "base_url": "https://apihub.agnes-ai.com/v1",
+      "api_key": "",
+      "chat_model": "agnes-2.5-flash",
+      "image_model": "agnes-image-2.1-flash",
+      "video_model": "agnes-video-2.5",
+      "enabled": true
+    },
+    "zhipu": {
+      "type": "openai",
+      "name": "智谱 GLM-4-Flash（免费）",
+      "base_url": "https://open.bigmodel.cn/api/paas/v4",
+      "api_key": "",
+      "chat_model": "glm-4-flash",
+      "image_model": "",
+      "enabled": true
+    },
+    "baidu": {
+      "type": "baidu",
+      "name": "百度 ERNIE-Speed（免费）",
+      "base_url": "",
+      "api_key": "",
+      "secret_key": "",
+      "chat_model": "ernie-speed-128k",
+      "image_model": "",
+      "enabled": true
+    },
+    "ollama": {
+      "type": "openai",
+      "name": "本地模型（包内 Qwen3.6-35B，完全离线）",
+      "base_url": "http://127.0.0.1:18080/v1",
+      "api_key": "ollama",
+      "chat_model": "Qwen3.6-35B-A3B-IQ2_M.gguf",
+      "image_model": "",
+      "enabled": true
+    },
+    "g4f": {
+      "type": "g4f",
+      "name": "gpt4free（GitHub 开源保底，无需Key）",
+      "base_url": "",
+      "api_key": "",
+      "chat_model": "gpt-4o-mini",
+      "image_model": "",
+      "enabled": true
+    },
+    "freellmapi": {
+      "type": "openai",
+      "name": "FreeLLMAPI（本地免费聚合，自动调度）",
+      "base_url": "http://127.0.0.1:3001/v1",
+      "api_key": "",
+      "chat_model": "auto",
+      "image_model": "",
+      "enabled": true
+    },
+    "github": {
+      "type": "openai",
+      "name": "GitHub Models（免费，需 GitHub PAT）",
+      "base_url": "https://models.github.ai/inference",
+      "api_key": "",
+      "chat_model": "gpt-4.1-mini",
+      "image_model": "",
+      "enabled": true
+    },
+    "nvidia": {
+      "type": "openai",
+      "name": "NVIDIA NIM（免费，需 nvapi key）",
+      "base_url": "https://integrate.api.nvidia.com/v1",
+      "api_key": "",
+      "chat_model": "deepseek-ai/deepseek-v4-flash-0731",
+      "image_model": "",
+      "enabled": true
+    }
+  },
+  "mode": "cloud",
+  "tts_enabled": true,
+  "max_history": 20,
+  "temperature": 0.3,
+  "system_prompt": "你是 AgnesAgent，一个免费全能的 AI 桌面助手。你必须严格遵循以下规则回答问题：\n\n【核心原则】\n1. 直接回答优先：先用自己的知识直接回答用户问题，不要一上来就调用工具。回答必须紧扣用户当前问题，禁止跑题、发散或自行展开无关话题。\n2. 信息不足时：如果自己的知识不足以回答，先给出已有信息的部分答案，然后明确声明「关于XX我无法确认」，再考虑使用搜索工具补充。\n3. 严禁编造：绝对禁止虚构、捏造或猜测答案。不确定就说不知道，不要编造数据、引用或事实。\n4. 回答格式：保持简洁、结构化。能用一句话说清就不要用三段。列表、代码、步骤用对应格式呈现。\n5. 工具使用：仅在用户询问实时信息（天气、新闻、股价等）、需要执行代码、或需要读取本地文件时才使用工具。不要每轮都搜索。\n6. 本地能力：你可以调用本地离线 AI（无需联网）：ocr_image 识别图片文字；local_llm 调用本地大模型回答（隐私/断网场景优先）。离线优先，能用本地能力完成的任务优先用本地能力。\n7. 图像生成：当用户明确要求\"生成/画/绘制/做一张图/图片\"（如画一只猫、生成头像、做海报图）时，必须调用 generate_image 工具生成图片，生成后简短告知用户即可，不要自行描述图片内容，也不要回复\"没有此功能\"。\n\n用户可通过「📎 文件」按钮上传附件（txt/pdf/docx/xlsx/csv/md/图片等），附件内容会注入对话上下文。侧边栏「能力部门」可开关你的工具集，关闭的部门你不会使用对应功能。",
+  "dept_disabled": {
+    "读取文件部": true
+  },
+  "huggingface_token": ""
+}
